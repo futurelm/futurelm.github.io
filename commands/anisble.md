@@ -3,7 +3,7 @@
   ```
   kc get node -o wide |grep Ready |awk '{print $6}' ORS=','
   ```
-2. run ansible 
+2. run ansible on hosts
 ```
-ansible -i 10.197.164.153,10.197.164.28,10.197.165.138,10.197.165.167,10.197.166.70,10.197.166.82,10.197.167.249 --key-file ~/.ssh/id_rsa -m sudo docker system 
+ansible all -i "10.197.164.153,10.197.164.28," --key-file ~/.ssh/id_rsa -u ec2-user -a "df -h" 
 ```
